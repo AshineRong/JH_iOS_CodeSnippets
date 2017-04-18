@@ -1,10 +1,6 @@
 # qmui-ios-codesnippets 
 *qmui-ios-codesnippets* 是一个 QMUI 团队日常工作中整理出来的用于 Xcode 的 iOS 通用代码片段集，其中也包含若干专用于 QMUI for iOS 框架的代码片段。
 
-我Fork它,现在开始扩展它
-
-
-
 整理这个代码片段集的初衷有以下几点：
 
 1. 我们发现由于 Xcode 本身的功能不足，导致我们经常在重写一些系统父类方法时容易忘了调用 `super`，从而出现一些很难排查的诡异bug。
@@ -122,6 +118,3 @@ Xcode 的 Code Snippets 文件存放于 `~/Library/Developer/Xcode/UserData/Code
 - `__strongSelf` - 将 `weakSelf` 指针改为 `strong` 的 `self` 指针
 - `logCallStackSymbols` - 用 `NSLog` 打出当前的方法调用栈信息
 - `timeConsuming` - 展开一段用 `CACurrentMediaTime()` 来计算方法耗时的代码
-
-
-
