@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>BAN</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> weakSelf_LJW;
+[BANetManager ba_requestWithType:(BAHttpRequestTypePost) urlString:[NSString stringWithFormat:@"%@&lt;#api/loanDesire/addLoanDesire#&gt;",APPBaseHYUrl] parameters:[self transformEncryptionParams:[self transformEncryptionParams:&lt;#dict#&gt;]] successBlock:^(id response) {
+        
+    } failureBlock:^(NSError *error) {
+        
+    } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
+        
+    }];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C7761207-17D4-4B8B-88DF-837028D218AA</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>BANetManager</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
