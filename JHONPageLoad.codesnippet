@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>BAPAGE</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> weakSelf_LJW;
+   
+   //是否加载更多
+    if(isLoadMore){
+        self.page++;
+        NSDictionary * dict ;
+        dict = @{@"u_uuid":@"3aa1acf589054179981fa001a688db6b",@"pageNum":@(self.page)};//FIXME: 获取u_uuid?
+        [BANetManager ba_requestWithType:(BAHttpRequestTypePost) urlString:str parameters:[self transformEncryptionParams:[self transformEncryptionParams:dict]] successBlock:^(id response) {
+            
+            BOOL statusFlag = [response[@"success"] intValue];//成功的时候
+            
+            if(statusFlag){
+                 NSDictionary *data = [response objectForKey:@"value"];
+                 if ([data[@"noPage"] intValue] == 1) {
+                    //有数据时
+                    [weakSelf.tableView.mj_footer endRefreshing];
+                }else{
+                    //没有数据时调用
+                    [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+                }
+                
+                 //TODO设置数据源
+                
+                
+                
+                
+            }else{
+                 self.page--;//加载失败，恢复page页码
+                  if ([response[@"resultMsg"] isEqualToString:@"登录已失效"]) {
+                    [self showMBProgressWithOnlyTitle_LJW:@"登录失效，请重新登录"];
+                    [self loginOrNo:NO];
+                    [self jumpLogin];
+                 }else{
+                    [self showMBProgressWithOnlyTitle_LJW:response[@"resultMsg"]];
+                    
+                 }
+                
+            }
+    
+            [weakSelf.tableView reloadData];
+
+            [self hideMBProgress_LJW];
+            [weakSelf.tableView.mj_header endRefreshing];
+        } failureBlock:^(NSError *error) {
+             self.page--;//加载失败，page恢复
+            [self hideMBProgress_LJW];
+            [self.tableView.mj_header endRefreshing];
+            
+        } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
+            
+        }];
+        
+    }else{
+    
+        self.page = 0;
+        //重置加载更多功能
+        [self.tableView.mj_footer resetNoMoreData];
+        
+        //下拉刷新的时候隐藏footer，加载完以后显示
+        self.tableView.mj_footer.hidden = YES;
+        NSDictionary * dict ;
+        dict = @{@"u_uuid":@"3aa1acf589054179981fa001a688db6b",@"pageNum":@(self.page)};//FIXME: 获取u_uuid?
+        [BANetManager ba_requestWithType:(BAHttpRequestTypePost) urlString:str parameters:[self transformEncryptionParams:[self transformEncryptionParams:dict]] successBlock:^(id response) {
+             self.tableView.mj_footer.hidden = NO;
+            BOOL statusFlag = [response[@"success"] intValue];//成功的时候
+            if(statusFlag){
+                NSDictionary *data = [response objectForKey:@"value"];
+                //TODO:清空数据源
+//                [self.modelsArr removeAllObjects];
+//                self.modelsArr = [projectModel mj_objectArrayWithKeyValuesArray:response[@"value"][@"loan"]];
+                [weakSelf.tableView reloadData];
+            }else
+            {
+                
+                if ([response[@"resultMsg"] isEqualToString:@"登录已失效"]) {
+                    [self showMBProgressWithOnlyTitle_LJW:@"登录失效，请重新登录"];
+                    [self loginOrNo:NO];
+                    [self jumpLogin];
+                }else
+                {
+                    [self showMBProgressWithOnlyTitle_LJW:response[@"resultMsg"]];
+                    
+                }
+            }
+            
+            [weakSelf.tableView.mj_header endRefreshing];
+            [self hideMBProgress_LJW];
+        } failureBlock:^(NSError *error) {
+            [self hideMBProgress_LJW];
+            self.tableView.mj_footer.hidden = NO;
+            [self.tableView.mj_header endRefreshing];
+            
+        } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
+            
+        }];
+        
+
+        
+        
+        
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B03E6777-5F7A-400F-A47C-A4AADEDEE54E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>BA分页加载</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>BAonPageLoad</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -9,14 +9,36 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string> weakSelf_LJW;
-[BANetManager ba_requestWithType:(BAHttpRequestTypePost) urlString:[NSString stringWithFormat:@"%@&lt;#api/loanDesire/addLoanDesire#&gt;",APPBaseHYUrl] parameters:[self transformEncryptionParams:[self transformEncryptionParams:&lt;#dict#&gt;]] successBlock:^(id response) {
+	<string>NSDictionary * dict ;
+dict = @{&lt;#parm#&gt;};//FIXME: 获取u_uuid?
+NSString *str = @"&lt;#VPSJSON#&gt;";
+str = [NSString stringWithFormat:@"%@&lt;#api/loanDesire/addLoanDesire#&gt;",APPBaseHYUrl];
+weakSelf_LJW;
+[BANetManager ba_requestWithType:(BAHttpRequestTypePost) urlString:str parameters:[self transformEncryptionParams:[self transformEncryptionParams:dict]] successBlock:^(id response) {
+    
+    BOOL statusFlag = [response[@"success"] intValue];//成功的时候
+    
+    if(statusFlag){
+        NSDictionary *data = [response objectForKey:@"value"];
         
-    } failureBlock:^(NSError *error) {
         
-    } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
         
-    }];</string>
+        
+        
+        
+        
+        
+        
+    }
+    [self.tableView.mj_header endRefreshing];
+    [self hideMBProgress_LJW];
+} failureBlock:^(NSError *error) {
+    [self hideMBProgress_LJW];
+    [self.tableView.mj_header endRefreshing];
+    
+} progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
+    
+}];</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>C7761207-17D4-4B8B-88DF-837028D218AA</string>
 	<key>IDECodeSnippetLanguage</key>
