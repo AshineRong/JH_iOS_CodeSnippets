@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>JCell</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (void)setDatas {
+    
+}
+
+-(void)setModel:(&lt;#shopCarCellModel#&gt; *)model{
+    _model = model;
+    [self setDatas];
+}
+- (void)setupUI {
+    
+}
+
+- (void)setupLayout {
+    
+}
+
+
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        //设置子控件
+        [self setupUI];
+        //设置控件约束
+        [self setupLayout];
+    };
+    return self;
+}
+
++(instancetype )cellWithTableView:(UITableView *)tableView{
+    static NSString *re&lt;#cellID#&gt;=@"re&lt;#cellID#&gt;";
+    &lt;#CELL#&gt; *cell = [tableView dequeueReusableCellWithIdentifier:reshopCarCell];
+    if(nil == cell){
+        cell = [[self alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reshopCarCell];//[[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class])  owner:nil options:nil] firstObject];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return cell;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C4CCF9EE-59BC-4697-A7DA-34E707A8EDCD</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>自定义cell,纯代码</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>JHCell</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
