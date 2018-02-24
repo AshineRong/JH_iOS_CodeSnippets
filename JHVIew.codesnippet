@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>JHV</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>
+- (instancetype)initWithFrame:(CGRect)frame{
+      if (self = [super initWithFrame:frame]) {
+          [self setUI];
+      }
+      return self;
+      
+  }
+
+
+- (void)setUI {
+    
+}
+
+-(void)setModel:(&lt;#viewModel#&gt; *)model{
+    _model = model;
+    [self setData];
+}
+
+-(void)setData{
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>FCCEA927-EFD5-4195-806D-8A27DF9373D9</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>自定义View</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>JHVIew</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
