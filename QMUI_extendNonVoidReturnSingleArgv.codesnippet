@@ -3,26 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>setNavigationItems</string>
+	<string>extend_return_single_argv</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>ClassImplementation</string>
+		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>- (void)setNavigationItemsIsInEditMode:(BOOL)isInEditMode animated:(BOOL)animated {
-    [super setNavigationItemsIsInEditMode:isInEditMode animated:animated];
-    self.title = @"&lt;##&gt;";
-}</string>
+	<string>ExtendImplementationOfNonVoidMethodWithSingleArgument([&lt;#targetClass#&gt; class], @selector(&lt;#targetSelector#&gt;), &lt;#argumentType#&gt;, &lt;#returnType#&gt;, ^&lt;#returnType#&gt;(&lt;#targetClass#&gt; *selfObject, &lt;#argumentType#&gt; firstArgv, &lt;#returnType#&gt; originReturnValue) {
+        return &lt;#custom extend#&gt;;
+    });</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>DC0DDC5E-D32D-49BF-A61E-06403ADBB977</string>
+	<string>D96EBFBE-EA27-4210-B9D4-8172B875559A</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetPlatformFamily</key>
-	<string>iphoneos</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>设置navigationItem</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>setNavigationItems</string>
+	<string>Extend Implementation Of Non Void Return Single Argument</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

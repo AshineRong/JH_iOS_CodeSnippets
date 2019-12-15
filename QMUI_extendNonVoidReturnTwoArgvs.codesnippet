@@ -3,19 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>rightBarButtonItemImage</string>
+	<string>extend_return_two_argvs</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>UIBarButtonItem *&lt;#itemName#&gt; = [QMUINavigationButton barButtonItemWithImage:UIImageMake(@"&lt;#imageNamed#&gt;") position:QMUINavigationButtonPositionRight target:self action:@selector(handle&lt;#ItemName#&gt;Event:)];</string>
+	<string>ExtendImplementationOfNonVoidMethodWithTwoArguments([&lt;#targetClass#&gt; class], @selector(&lt;#targetSelector#&gt;), &lt;#argumentType1#&gt;, &lt;#argumentType2#&gt;, &lt;#returnType#&gt;, ^&lt;#returnType#&gt;(&lt;#targetClass#&gt; *selfObject, &lt;#argumentType1#&gt; firstArgv, &lt;#argumentType2#&gt; secondArgv, &lt;#returnType#&gt; originReturnValue) {
+            return &lt;#custom extend#&gt;;
+        });</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>35F7D6D2-ADA0-469A-99D1-510E1EFB0646</string>
+	<string>DFCA59C1-07E0-4857-AE4D-3C9045016712</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>生成一个图片的UIBarButtonItem用于rightBarButtonItem</string>
+	<string>Extend Implementation Of Non Void Return Two Arguments</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

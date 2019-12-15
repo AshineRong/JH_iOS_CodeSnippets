@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>replaceMethod</string>
+	<string>exchangeImplementation</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>ClassImplementation</string>
@@ -17,11 +17,15 @@
         SEL newSelector = @selector(&lt;#new selector#&gt;);
         Method oriMethod = class_getInstanceMethod(class, originSelector);
         Method newMethod = class_getInstanceMethod(class, newSelector);
-        BOOL isAddedMethod = class_addMethod(class, originSelector, method_getImplementation(newMethod), method_getTypeEncoding(newMethod));
-        if (isAddedMethod) {
-            class_replaceMethod(class, newSelector, method_getImplementation(oriMethod), method_getTypeEncoding(oriMethod));
-        } else {
-            method_exchangeImplementations(oriMethod, newMethod);
+        if (newMethod) {
+            BOOL isAddedMethod = class_addMethod(class, originSelector, method_getImplementation(newMethod), method_getTypeEncoding(newMethod));
+            if (isAddedMethod) {
+                IMP oriMethodIMP = method_getImplementation(oriMethod) ?: imp_implementationWithBlock(^(id selfObject) {});
+                const char *oriMethodTypeEncoding = method_getTypeEncoding(oriMethod) ?: "v@:";
+                class_replaceMethod(class, newSelector, oriMethodIMP, oriMethodTypeEncoding);
+            } else {
+                method_exchangeImplementations(oriMethod, newMethod);
+            }
         }
     });
 }</string>
@@ -30,9 +34,9 @@
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>用来写replace method的load方法模板</string>
+	<string>用来写 exchange implementations 的 load 方法模板</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>replace method in +load</string>
+	<string>exchange method implementations in +load</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
